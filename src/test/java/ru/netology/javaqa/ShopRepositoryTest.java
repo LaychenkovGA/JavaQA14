@@ -50,7 +50,6 @@ public class ShopRepositoryTest {
         shop.add(productFour);
         Assertions.assertThrows(NotFoundException.class, () -> {
             shop.remove(666);
-            shop.remove(6_496);
         });
     }
 
@@ -65,8 +64,9 @@ public class ShopRepositoryTest {
         shop.add(productTwo);
         shop.add(productThree);
         shop.add(productFour);
+        shop.remove(1_534);
         Product[] expected = {productOne, productThree, productFour};
-        Product[] actual = shop.remove(1_534);
+        Product[] actual = shop.findAll();
         Assertions.assertArrayEquals(expected, actual);
     }
 }
